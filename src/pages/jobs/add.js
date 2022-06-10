@@ -1,7 +1,12 @@
-import AppLayout from '@/components/Layouts/AppLayout'
 import Head from 'next/head'
+import Link from 'next/link'
+import { useAuth } from '@/hooks/auth'
+import AppLayout from "@/components/Layouts/AppLayout";
 
-const Dashboard = () => {
+
+export default function Add() {
+    const { user } = useAuth({ middleware: 'guest' })
+
     return (
         <AppLayout
             header={
@@ -18,7 +23,7 @@ const Dashboard = () => {
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-6 bg-white border-b border-gray-200">
-                            Welcome
+                            Vercel
                         </div>
                     </div>
                 </div>
@@ -26,5 +31,3 @@ const Dashboard = () => {
         </AppLayout>
     )
 }
-
-export default Dashboard

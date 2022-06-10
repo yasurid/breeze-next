@@ -13,7 +13,14 @@ const Navigation = ({ user }) => {
 
     const { logout } = useAuth()
 
+
+
     const [open, setOpen] = useState(false)
+
+    const {user_type} = 0;
+
+    //user_type = user;
+
 
     return (
         <nav className="bg-white border-b border-gray-100">
@@ -23,9 +30,11 @@ const Navigation = ({ user }) => {
                     <div className="flex">
                         {/* Logo */}
                         <div className="flex-shrink-0 flex items-center">
+
                             <Link href="/dashboard">
                                 <a>
-                                    <ApplicationLogo className="block h-10 w-auto fill-current text-gray-600" />
+
+                                    User Dashboard
                                 </a>
                             </Link>
                         </div>
@@ -37,6 +46,55 @@ const Navigation = ({ user }) => {
                                 active={router.pathname === '/dashboard'}>
                                 Dashboard
                             </NavLink>
+                            <NavLink
+                                href="/cv/manage"
+                                >
+                                 CV
+                            </NavLink>
+                            <NavLink
+                                href="/jobs/manage"
+                               >
+                                Jobs
+                            </NavLink>
+                            <NavLink
+                                href=""
+                            >
+                                Skills
+                            </NavLink>
+                            <NavLink
+                                href=""
+                            >
+                                Categories
+                            </NavLink>
+
+
+                            {/*{
+                                user.user_type = 1 && <NavLink
+                                    href="/cv/manage"
+                                    active={router.pathname === '/cv/manage'}>
+                                    cv
+                                </NavLink>
+                            }
+                            {
+                                user.user_type = 1 && <NavLink
+                                    href="/jobs/manage"
+                                    active={router.pathname === '/jobs/manage'}>
+                                    Jobs
+                                </NavLink>
+                            }
+                            {
+                                user.user_type = 0 && <NavLink
+                                    href="/cv/edit"
+                                    active={router.pathname === '/cv/edit'}>
+                                    Your CV
+                                </NavLink>
+                            }*/}
+
+
+
+
+
+
                         </div>
                     </div>
 
@@ -47,7 +105,10 @@ const Navigation = ({ user }) => {
                             width="48"
                             trigger={
                                 <button className="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 focus:outline-none transition duration-150 ease-in-out">
-                                    <div>{user?.name}</div>
+                                    <div>{user.name}</div>
+
+
+
 
                                     <div className="ml-1">
                                         <svg
@@ -136,7 +197,8 @@ const Navigation = ({ user }) => {
 
                             <div className="ml-3">
                                 <div className="font-medium text-base text-gray-800">
-                                    {user?.name}
+
+                                    {user?.userType}
                                 </div>
                                 <div className="font-medium text-sm text-gray-500">
                                     {user?.email}
@@ -146,6 +208,7 @@ const Navigation = ({ user }) => {
 
                         <div className="mt-3 space-y-1">
                             {/* Authentication */}
+
                             <ResponsiveNavButton onClick={logout}>
                                 Logout
                             </ResponsiveNavButton>

@@ -5,6 +5,7 @@ import Button from '@/components/Button'
 import GuestLayout from '@/components/Layouts/GuestLayout'
 import Input from '@/components/Input'
 import Label from '@/components/Label'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useAuth } from '@/hooks/auth'
 import { useState } from 'react'
@@ -33,7 +34,8 @@ const Register = () => {
                 logo={
                     <Link href="/">
                         <a>
-                            <ApplicationLogo className="w-20 h-20 fill-current text-gray-500" />
+
+                            <Image src='/logo.png'  width='128px' height='56px' />
                         </a>
                     </Link>
                 }>
